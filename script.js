@@ -1,9 +1,9 @@
-// Get all accordion buttons
-const accordionButtons = document.querySelectorAll('.accordion-btn');
+// Get all accordion titles
+const accordionTitles = document.querySelectorAll('.accordion-title');
 
-// Add click event listener to each button
-accordionButtons.forEach(button => {
-    button.addEventListener('click', function() {
+// Add click event listener to each title
+accordionTitles.forEach(title => {
+    title.addEventListener('click', function() {
         // Toggle the panel visibility
         const panel = this.nextElementSibling;
         panel.classList.toggle('show');
