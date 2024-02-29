@@ -30,51 +30,27 @@
             <img src="https://sirpeca.github.io/imagenes/maqresolv/lazyadmin.jpg" alt="Lazy Admin" class="image">
             <h4 onclick="toggleDetails('leccion-1-enumeracion')">1. Introducción:</h4>
             <div id="leccion-1-enumeracion" class="details">
-                <h5>1. Introducción a la seguridad informática y pentesting:</h5>            
-                <p>En el vasto mundo de la tecnología y la información, la seguridad es una preocupación fundamental. Con la creciente interconexión de sistemas y el aumento de las amenazas cibernéticas, la protección de la información se ha convertido en una prioridad para empresas, organizaciones gubernamentales y usuarios individuales por igual. En este contexto, la seguridad informática emerge como un campo crucial que busca salvaguardar los datos y sistemas contra amenazas y ataques maliciosos..</p>
-
-                <h5>1.2 Escaneo de puertos abiertos:</h5>
-                <p class="prompt">nmap -sC -sV &lt;ip&gt; -oN nmap</p>
-                <p>Se utiliza Nmap para escanear los puertos abiertos en la máquina virtual.</p>
-
-                <h5>1.3 Examinar la página web:</h5>
-                <p class="prompt">firefox http://&lt;ip&gt;</p>
-                <p>Se utiliza Firefox para visitar la página web alojada en la máquina virtual.</p>
-
-                <h5>1.4 Enumerar las rutas HTTP:</h5>
-                <p class="prompt">wfuzz -c -L -t 400 --sc=200,301 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://&lt;ip&gt;/FUZZ</p>
-                <p>Se utiliza wfuzz para enumerar las rutas HTTP.</p>
+                <h5> Introducción a la seguridad informática y pentesting:</h5>            
+                <p>En la era digital, donde la tecnología y la información son el motor de la sociedad moderna, la seguridad se ha vuelto una preocupación omnipresente y crítica. Con cada vez más aspectos de nuestras vidas, negocios y gobierno digitalizados y conectados, la exposición a amenazas cibernéticas se ha multiplicado exponencialmente. Desde ataques de ransomware que paralizan empresas enteras hasta el robo de datos personales que comprometen la privacidad de millones de personas, los peligros en línea son tan diversos como omnipresentes.
+Ante este panorama, la seguridad informática emerge como un bastión esencial en la defensa contra tales amenazas. Este campo multidisciplinario no solo se trata de proteger los datos y sistemas, sino también de salvaguardar la confianza y la estabilidad en la infraestructura digital global. Empresas de todos los tamaños, desde gigantes tecnológicos hasta pequeñas startups, se ven obligadas a enfrentarse a esta realidad, reconociendo que la seguridad informática ya no es un lujo opcional, sino una necesidad ineludible.
+El pentesting, o prueba de penetración, surge como una herramienta fundamental en este arsenal de defensa. Al simular ataques controlados contra sistemas informáticos, los pentesters ayudan a identificar debilidades y vulnerabilidades antes de que sean explotadas por actores maliciosos. Su papel es crucial en la protección de la información sensible y la infraestructura crítica, brindando una capa adicional de seguridad que va más allá de las simples medidas de protección estándar.</p>
+            
             </div>
             
-            <h4 onclick="toggleDetails('lazy-admin-explotacion')">2. Explotación:</h4>
-            <div id="lazy-admin-explotacion" class="details">
-                <h5>2.1 Explorar la ruta "/content":</h5>
-                <p class="prompt">firefox http://&lt;ip&gt;/content</p>
-                <p>Se utiliza Firefox para visitar la ruta /content en la máquina virtual.</p>
+            <h4 onclick="toggleDetails('leccion-2-details')">2. Conceptos básicos de la seguridad informática:</h4>
+            <div id="leccion-2-details" class="details">
+                <h5> Los Pilares Fundamentales de la Seguridad Informática: Confidencialidad, Integridad y Disponibilidad "/content":</h5>                
+                <p>La seguridad informática es un campo multidimensional que engloba una variedad de principios, prácticas y tecnologías diseñadas meticulosamente para proteger cada aspecto vital de la información digital en un mundo cada vez más conectado y expuesto a amenazas cibernéticas. Estos conceptos básicos son fundamentales para comprender la esencia y la importancia de la seguridad informática:</p>
 
-                <h5>2.2 Buscar un exploit para SweetRice:</h5>
-                <p class="prompt">searchsploit sweetrice</p>
-                <p>Searchsploit es una herramienta que indexa exploits de diversas bases de datos públicas.</p>
+                <h5>Confidencialidad:</h5>                
+                <p>Este principio se refiere a la protección de la información sensible contra accesos no autorizados. Garantizar la confidencialidad implica asegurar que solo aquellos individuos o entidades autorizadas puedan acceder, ver o manipular datos protegidos. Esto se logra mediante la implementación de medidas de seguridad como la encriptación de datos, el control de acceso basado en roles y la autenticación multifactorial. Por ejemplo, en el contexto de una empresa de servicios financieros, la confidencialidad se traduce en asegurar que los datos bancarios de los clientes solo estén disponibles para los empleados autorizados y no sean accesibles para terceros no autorizados.</p>
 
-                <h5>2.3 Descargar y ejecutar el exploit:</h5>
-                <p class="prompt">wget https://www.exploit-db.com/exploits/44128/ -O exploit.sh</p>
-                <p>Se descarga el exploit específico para SweetRice desde Exploit Database.</p>
+                <h5>Integridad:</h5>                
+                <p>La integridad se relaciona con la precisión y la fiabilidad de los datos. Garantizar la integridad implica proteger la información contra modificaciones no autorizadas o involuntarias que puedan comprometer su exactitud o validez. Esto se logra mediante la implementación de controles de integridad, como firmas digitales, hash criptográficos y control de versiones. Por ejemplo, en el contexto de una base de datos de registros médicos electrónicos, la integridad se traduce en asegurar que los datos de los pacientes no sean alterados sin autorización, lo que podría conducir a diagnósticos incorrectos o tratamientos inadecuados.</p>
 
-                <h5>2.4 Crear una reverse shell:</h5>
-                <p class="prompt">nano exploit.html</p>
-                <p>Se utiliza el editor de texto nano para crear un archivo HTML llamado exploit.html.</p>
-
-                <h5>2.5 Iniciar una escucha en la máquina atacante:</h5>
-                <p class="prompt">nc -lvnp 1234</p>
-                <p>Se inicia Netcat en modo de escucha en el puerto 1234 para recibir la conexión de la reverse shell.</p>
-
-                <h5>2.6 Ejecutar el exploit en la máquina virtual:</h5>
-                <p class="prompt">firefox exploit.html</p>
-                <p>Se utiliza Firefox para visitar el archivo HTML exploit.html.</p>
-
-                <h5>2.7 Obtener una shell en la máquina virtual:</h5>
-                <p class="prompt">stty raw -echo fg</p>
-                <p>Estos comandos se utilizan para ajustar la shell interactiva obtenida de la reverse shell.</p>
+                <h5>Disponibilidad:</h5>                
+                <p>La disponibilidad se refiere a garantizar que los recursos de información estén disponibles y accesibles cuando se necesiten. Esto implica proteger los sistemas contra interrupciones o indisponibilidades que puedan obstaculizar el acceso o el uso de los datos. Para lograr la disponibilidad, se implementan medidas como la redundancia de servidores, la replicación de datos y la planificación de la capacidad. Por ejemplo, en el contexto de un proveedor de servicios en la nube, la disponibilidad se traduce en garantizar que los usuarios puedan acceder a sus datos y aplicaciones en cualquier momento y desde cualquier lugar, sin experimentar tiempos de inactividad o pérdida de servicio.</p>
+    
             </div>
             
             <h4 onclick="toggleDetails('lazy-admin-escalada')">3. Escalada de privilegios:</h4>
