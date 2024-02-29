@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Pentester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Curso Pentester</h1>
+  </header>
+  <main>
+    <section class="introduccion">
+      <h2>Introducción a la Seguridad Ofensiva</h2>
+      <p>Hackea tu primer sitio web (legalmente en un entorno seguro) y experimenta el trabajo de un hacker ético.</p>
+      <button class="desplegable">Más información</button>
+      <div class="contenido-desplegable">
+        <p>La seguridad ofensiva es el proceso de penetrar en sistemas informáticos, explotar errores de software y encontrar lagunas en aplicaciones para obtener acceso no autorizado a ellas.</p>
+        <p>Para vencer a un hacker, necesitas comportarte como un hacker, encontrar vulnerabilidades y recomendar parches antes de que lo haga un ciberdelincuente, ¡como harás en esta sala!</p>
+        <p>
+          **¿Cuál de las siguientes opciones representa mejor el proceso donde simulas las acciones de un hacker para encontrar vulnerabilidades en un sistema?**
+        </p>
+        <ul>
+          <li><input type="radio" name="respuesta1" value="seguridad_ofensiva"> Seguridad Ofensiva</li>
+          <li><input type="radio" name="respuesta1" value="seguridad_defensiva"> Seguridad Defensiva</li>
+        </ul>
+      </div>
+    </section>
+    <section class="tarea1">
+      <h2>Tarea 1: Hackeando tu primera máquina</h2>
+      <p>Sigue los pasos a continuación para hackear una aplicación bancaria falsa llamada FakeBank y experimentar el trabajo de un hacker ético.</p>
+      <ol>
+        <li>Haz clic en el botón "Start Machine" (Iniciar máquina).</li>
+        <li>Abre un terminal en la máquina.</li>
+        <li>Escribe el siguiente comando en el terminal para encontrar páginas web ocultas en FakeBank:</li>
+        ```
+        gobuster -u [http://fakebank.com](http://fakebank.com) -w wordlist.txt dir
+        ```
+        <li>Deberías haber encontrado una página secreta de transferencia bancaria (/bank-transfer).</li>
+        <li>Transfiere $2000 de la cuenta bancaria 2276 a tu cuenta (número de cuenta 8881).</li>
+        <li>Si tu transferencia fue exitosa, habrás hackeado el banco.</li>
+      </ol>
+      <p>**Recursos adicionales:**</p>
+      <ul>
+        <li><a href="https://tryhackme.com/">TryHackMe</a></li>
+        <li><a href="https://github.com/OJ/gobuster">GoBuster</a></li>
+        <li><a href="https://www.campusciberseguridad.com/blog/item/144-que-es-la-seguirdad-ofensiva">Campus Ciberseguridad</a></li>
+      </ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
