@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.introduccion h2 {
+  margin-top: 0;
+}
+
+.desplegable {
+  background-color: #ccc;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.contenido-desplegable {
+  display: none;
+  margin-top: 10px
