@@ -5,9 +5,20 @@ const accordionButtons = document.querySelectorAll('.accordion-btn');
 accordionButtons.forEach(button => {
     button.addEventListener('click', function() {
         // Toggle the panel visibility
-        this.nextElementSibling.classList.toggle('show');
+        const panelId = this.nextElementSibling.id;
+        togglePanel(panelId);
     });
 });
+
+// Function to toggle panel visibility
+function togglePanel(panelId) {
+    var panel = document.getElementById(panelId);
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "block";
+    }
+}
 
 // Function to verificarRespuesta1
 function verificarRespuesta1() {
