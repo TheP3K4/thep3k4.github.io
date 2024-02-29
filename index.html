@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso Pentester</title>
-  <link rel="stylesheet" href="styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Curso Pentester</title>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 style="font-family: Arial, sans-serif; color: #333; text-align: center;">Curso Pentester</h1>
-  <div class="container">
-    <details>
-      <summary>Introducción a la Seguridad Ofensiva</summary>
-      <div>
-        <p>Hackea tu primer sitio web (legalmente en un entorno seguro) y experimenta el trabajo de un hacker ético.</p>
-        <h3 class="accordion-title">Tarea 1</h3>
-        <div class="panel">
-          <p>¿Qué es la Seguridad Ofensiva?</p>
-          <p>En resumen, la seguridad ofensiva es el proceso de penetrar en sistemas informáticos, explotar errores de software y encontrar lagunas en aplicaciones para obtener acceso no autorizado a ellas.</p>
-          <p>Para vencer a un hacker, necesitas comportarte como un hacker, encontrar vulnerabilidades y recomendar parches antes de que lo haga un ciberdelincuente, ¡como harás en esta sala!</p>
-          <p>Por otro lado, también está la seguridad defensiva, que es el proceso de proteger la red de una organización y los sistemas informáticos analizando y asegurando cualquier amenaza digital potencial.</p>
-          <form>
-            <label for="respuesta1">¿Cuál de las siguientes opciones representa mejor el proceso donde simulas las acciones de un hacker para encontrar vulnerabilidades en un sistema?</label><br>
-            <input type="text" id="respuesta1" name="respuesta1"><br>
-            <button type="button" onclick="verificarRespuesta1()">Submit</button>
-          </form>
-          <p id="respuesta1-feedback"></p>
-        </div>
-        <h3 class="accordion-title">Tarea 2</h3>
-        <div class="panel">
-          <p>Hackeando tu primera máquina</p>
-          <p>Antes de adentrarnos en las carreras de ciberseguridad y en qué consiste la seguridad ofensiva, permíteme llevarte al mundo del hackeo (y sí, es legal, todos los ejercicios son simulaciones ficticias).</p>
-          <p>Tu primer hack</p>
-          <p>Haz clic en el botón "Start Machine" (Iniciar máquina). Una vez cargado en Split View en tu navegador, tendrás acceso a una máquina que utilizarás para hackear una aplicación bancaria falsa llamada FakeBank. Si no ves aparecer la máquina, utiliza el botón azul "Show Split View" (Mostrar vista dividida) en la parte superior derecha de esta página.</p>
-          <p>Utilizaremos una aplicación de línea de comandos llamada "GoBuster" para hacer fuerza bruta en el sitio web de FakeBank y encontrar directorios y páginas ocultas. GoBuster tomará una lista de nombres de páginas o directorios potenciales y tratará de acceder a un sitio web con cada uno de ellos; si la página existe, te lo dirá.</p>
-          <p>Paso 1) Abre un terminal</p>
-          <p>Un terminal, también conocido como línea de comandos, nos permite interactuar con una computadora sin utilizar una interfaz gráfica de usuario. En la máquina, abre el terminal usando el ícono de Terminal:</p>
-          <p>¿Tienes problemas? Mira el video</p>
-          <p>Paso 2) Encuentra páginas web ocultas</p>
-          <p>La mayoría de las empresas tendrán una página de portal de administración, que brinda a su personal acceso a controles de administración básicos para operaciones diarias. Para un banco, un empleado podría necesitar transferir dinero hacia y desde las cuentas de los clientes. A menudo, estas páginas no se hacen privadas, lo que permite a los atacantes encontrar páginas ocultas que muestren o den acceso a controles de administración o datos sensibles.</p>
-          <p>Escribe el siguiente comando en el terminal para encontrar páginas potencialmente ocultas en el sitio web de FakeBank utilizando GoBuster (una aplicación de seguridad de línea de comandos).</p>
-          <pre>gobuster -u http://fakebank.com -w wordlist.txt dir</pre>
-          <p>El comando se ejecutará y te mostrará una salida similar a esta:</p>
-          <pre>ubuntu@tryhackme:~/Desktop$ gobuster -u http://fakebank.com -w wordlist.txt dir
+ <h1 style="font-family: Arial, sans-serif; color: #333; text-align: center;">Curso Pentester</h1>
+ <div class="container">
+  <details>
+   <summary>Introducción a la Seguridad Ofensiva</summary>
+   <div>
+    <p>Hackea tu primer sitio web (legalmente en un entorno seguro) y experimenta el trabajo de un hacker ético.</p>
+    <h3 class="accordion-title">Tarea 1</h3>
+    <div class="panel">
+     <p>¿Qué es la Seguridad Ofensiva?</p>
+     <p>En resumen, la seguridad ofensiva es el proceso de penetrar en sistemas informáticos, explotar errores de software y encontrar lagunas en aplicaciones para obtener acceso no autorizado a ellas.</p>
+     <p>Para vencer a un hacker, necesitas comportarte como un hacker, encontrar vulnerabilidades y recomendar parches antes de que lo haga un ciberdelincuente, ¡como harás en esta sala!</p>
+     <p>Por otro lado, también está la seguridad defensiva, que es el proceso de proteger la red de una organización y los sistemas informáticos analizando y asegurando cualquier amenaza digital potencial.</p>
+     <form>
+      <label for="respuesta1">¿Cuál de las siguientes opciones representa mejor el proceso donde simulas las acciones de un hacker para encontrar vulnerabilidades en un sistema?</label><br>
+      <input type="text" id="respuesta1" name="respuesta1"><br>
+      <button type="button" onclick="verificarRespuesta1()">Submit</button>
+     </form>
+     <p id="respuesta1-feedback"></p>
+    </div>
+    <h3 class="accordion-title">Tarea 2</h3>
+    <div class="panel">
+     <p>Hackeando tu primera máquina</p>
+     <p>Antes de adentrarnos en las carreras de ciberseguridad y en qué consiste la seguridad ofensiva, permíteme llevarte al mundo del hackeo (y sí, es legal, todos los ejercicios son simulaciones ficticias).</p>
+     <p>Tu primer hack</p>
+     <p>Haz clic en el botón "Start Machine" (Iniciar máquina). Una vez cargado en Split View en tu navegador, tendrás acceso a una máquina que utilizarás para hackear una aplicación bancaria falsa llamada FakeBank. Si no ves aparecer la máquina, utiliza el botón azul "Show Split View" (Mostrar vista dividida) en la parte superior derecha de esta página.</p>
+     <p>Utilizaremos una aplicación de línea de comandos llamada "GoBuster" para hacer fuerza bruta en el sitio web de FakeBank y encontrar directorios y páginas ocultas. GoBuster tomará una lista de nombres de páginas o directorios potenciales y tratará de acceder a un sitio web con cada uno de ellos; si la página existe, te lo dirá.</p>
+     <p>Paso 1) Abre un terminal</p>
+     <p>Un terminal, también conocido como línea de comandos, nos permite interactuar con una computadora sin utilizar una interfaz gráfica de usuario. En la máquina, abre el terminal usando el ícono de Terminal:</p>
+     <p>¿Tienes problemas? Mira el video</p>
+     <p>Paso 2) Encuentra páginas web ocultas</p>
+     <p>La mayoría de las empresas tendrán una página de portal de administración, que brinda a su personal acceso a controles de administración básicos para operaciones diarias. Para un banco, un empleado podría necesitar transferir dinero hacia y desde las cuentas de los clientes. A menudo, estas páginas no se hacen privadas, lo que permite a los atacantes encontrar páginas ocultas que muestren o den acceso a controles de administración o datos sensibles.</p>
+     <p>Escribe el siguiente comando en el terminal para encontrar páginas potencialmente ocultas en el sitio web de FakeBank utilizando GoBuster (una aplicación de seguridad de línea de comandos).</p>
+     <pre>gobuster -u http://fakebank.com -w wordlist.txt dir</pre>
+     <pre>gobuster -u http://fakebank.com -w wordlist.txt dir</pre>
+     <p>El comando se ejecutará y te mostrará una salida similar a esta:</p>
+     <pre>ubuntu@tryhackme:~/Desktop$ gobuster -u http://fakebank.com -w wordlist.txt dir
 
 ===============================================================
 Gobuster v3.0.1 - A fast & flexible directory/file bruteforcer
@@ -63,56 +64,54 @@ Files: 0 Found
 **Note:** The wordlist used might be outdated. Please consider using a more up-to-date wordlist.
 ===============================================================
 </pre>
-          <p>**Explicación de la salida:**</p>
-          <ul>
-            <li>La primera línea muestra la versión de GoBuster que se está utilizando.</li>
-            <li>La segunda línea muestra el comando que se ejecutó.</li>
-            <li>La tercera línea muestra la URL del sitio web que se está atacando.</li>
-            <li>La cuarta línea muestra la ruta a la lista de palabras que se está utilizando.</li>
-            <li>La siguiente sección muestra una lista de directorios que GoBuster ha encontrado.</li>
-            <li>La última sección resume los resultados del ataque.</li>
-          </ul>
-          <p>**Próximos pasos:**</p>
-          <p>Ahora que has encontrado algunos directorios potenciales, puedes usar GoBuster para intentar acceder a ellos. Por ejemplo, para intentar acceder al directorio "/admin", puedes usar el siguiente comando:</p>
-          <pre>gobuster -u http://fakebank.com/admin -w wordlist.txt dir</pre>
-          <p>Si tienes éxito, GoBuster te mostrará una lista de archivos en el directorio.</p>
-          <p>¡Continúa explorando y descubre qué más puedes encontrar!</p>
-        </div>
-<h3 class="accordion-title">Tarea 3: Carreras en Ciberseguridad</h3>
-<div class="panel">
-  <h4>¿Cómo puedo empezar a aprender?</h4>
-  <p>Mucha gente se pregunta cómo otros se convierten en hackers (consultores de seguridad) o defensores (analistas de seguridad que combaten el cibercrimen), y la respuesta es simple:</p>
-  <ul>
-    <li>**Descompónlo en pasos pequeños:** Elige un área de la ciberseguridad que te interese y comienza a aprender sobre ella.</li>
-    <li>**Practica con ejercicios prácticos:** Hay muchos recursos disponibles en línea, como TryHackMe, que te permiten practicar tus habilidades en un entorno seguro.</li>
-    <li>**Crea el hábito de aprender:** Dedica un tiempo cada día a aprender sobre ciberseguridad.</li>
-    <li>**Confía en ti mismo:** ¡Puedes hacerlo! Hay muchas personas que han utilizado TryHackMe para conseguir su primer trabajo en la industria de la seguridad.</li>
-  </ul>
-  <h4>Testimonios:</h4>
-  <ul>
-    <li>**Paul:** Pasó de ser trabajador de la construcción a ingeniero de seguridad. <a href="URL">Leer más</a></li>
-    <li>**Kassandra:** Pasó de ser profesora de música a profesional de la seguridad. <a href="URL">Leer más</a></li>
-    <li>**Brandon:** Usó TryHackMe mientras estaba en la escuela para conseguir su primer trabajo en ciberseguridad. <a href="URL">Leer más</a></li>
-  </ul>
-  <h4>¿Qué carreras hay?</h4>
-  <p>La sala de carreras en ciberseguridad profundiza en las diferentes opciones profesionales dentro de este campo. Sin embargo, aquí te presentamos una breve descripción de algunos roles de seguridad ofensiva:</p>
-  <ul>
-    <li>**Probador de Penetración:** Es responsable de probar productos tecnológicos para encontrar vulnerabilidades de seguridad explotables.</li>
-    <li>**Equipo Rojo:** Simula ser un adversario, atacando a una organización y proporcionando retroalimentación desde la perspectiva de un enemigo.</li>
-    <li>**Ingeniero de Seguridad:** Diseña, monitorea y mantiene controles de seguridad, redes y sistemas para ayudar a prevenir ciberataques.</li>
-  </ul>
-  <h4>Recursos adicionales:</h4>
-  <ul>
-    <li><a href="https://tryhackme.com/">TryHackMe</a></li>
-    <li><a href="https://www.turismosevilla.org/es/que-ver-y-hacer/turismo-la-carta/turismo-de-reuniones-y-congresos/sala-carreras">Sala de carreras en ciberseguridad</a></li>
-    <li><a href="https://www.xataka.com/seleccion/que-libro-electronico-comprar-guia-compra-ebook-recomendaciones-11-modelos-destacados">Libro electrónico gratuito sobre carreras en ciberseguridad</a></li>
-  </ul>
-</div>
-
-      </div>
-    </details>
-  </div>
-  <script src="script.js"></script>
+     <p>**Explicación de la salida:**</p>
+     <ul>
+      <li>La primera línea muestra la versión de GoBuster que se está utilizando.</li>
+      <li>La segunda línea muestra el comando que se ejecutó.</li>
+      <li>La tercera línea muestra la URL del sitio web que se está atacando.</li>
+      <li>La cuarta línea muestra la ruta a la lista de palabras que se está utilizando.</li>
+      <li>La siguiente sección muestra una lista de directorios que GoBuster ha encontrado.</li>
+      <li>La última sección resume los resultados del ataque.</li>
+     </ul>
+     <p>**Próximos pasos:**</p>
+     <p>Ahora que has encontrado algunos directorios potenciales, puedes usar GoBuster para intentar acceder a ellos. Por ejemplo, para intentar acceder al directorio "/admin", puedes usar el siguiente comando:</p>
+     <pre>gobuster -u http://fakebank.com/admin -w wordlist.txt dir</pre>
+     <p>Si tienes éxito, GoBuster te mostrará una lista de archivos en el directorio.</p>
+     <p>¡Continúa explorando y descubre qué más puedes encontrar!</p>
+    </div>
+    <h3 class="accordion-title">Tarea 3</h3>
+    <div class="panel">
+     <h4>¿Cómo puedo empezar a aprender?</h4>
+     <p>Mucha gente se pregunta cómo otros se convierten en hackers (consultores de seguridad) o defensores (analistas de seguridad que combaten el cibercrimen), y la respuesta es simple:</p>
+     <ul>
+      <li>**Descompónlo en pasos pequeños:** Elige un área de la ciberseguridad que te interese y comienza a aprender sobre ella.</li>
+      <li>**Practica con ejercicios prácticos:** Hay muchos recursos disponibles en línea, como TryHackMe, que te permiten practicar tus habilidades en un entorno seguro.</li>
+      <li>**Crea el hábito de aprender:** Dedica un tiempo cada día a aprender sobre ciberseguridad.</li>
+      <li>**Confía en ti mismo:** ¡Puedes hacerlo! Hay muchas personas que han utilizado TryHackMe para conseguir su primer trabajo en la industria de la seguridad.</li>
+     </ul>
+     <h4>Testimonios:</h4>
+     <ul>
+      <li>**Paul:** Pasó de ser trabajador de la construcción a ingeniero de seguridad. <a href="URL">Leer más</a></li>
+      <li>**Kassandra:** Pasó de ser profesora de música a profesional de la seguridad. <a href="URL">Leer más</a></li>
+      <li>**Brandon:** Usó TryHackMe mientras estaba en la escuela para conseguir su primer trabajo en ciberseguridad. <a href="URL">Leer más</a></li>
+     </ul>
+     <h4>¿Qué carreras hay?</h4>
+     <p>La sala de carreras en ciberseguridad profundiza en las diferentes opciones profesionales dentro de este campo. Sin embargo, aquí te presentamos una breve descripción de algunos roles de seguridad ofensiva:</p>
+     <ul>
+<li>**Probador de Penetración:** Es responsable de probar productos tecnológicos para encontrar vulnerabilidades de seguridad explotables.</li>
+      <li>**Equipo Rojo:** Simula ser un adversario, atacando a una organización y proporcionando retroalimentación desde la perspectiva de un enemigo.</li>
+      <li>**Ingeniero de Seguridad:** Diseña, monitorea y mantiene controles de seguridad, redes y sistemas para ayudar a prevenir ciberataques.</li>
+     </ul>
+     <h4>Recursos adicionales:</h4>
+     <ul>
+      <li><a href="https://tryhackme.com/">TryHackMe</a></li>
+      <li><a href="https://www.turismosevilla.org/es/que-ver-y-hacer/turismo-la-carta/turismo-de-reuniones-y-congresos/sala-carreras">Sala de carreras en ciberseguridad</a></li>
+      <li><a href="https://www.xataka.com/seleccion/que-libro-electronico-comprar-guia-compra-ebook-recomendaciones-11-modelos-destacados">Libro electrónico gratuito sobre carreras en ciberseguridad</a></li>
+     </ul>
+    </div>
+   </div>
+  </details>
+ </div>
+ <script src="script.js"></script>
 </body>
 </html>
-
