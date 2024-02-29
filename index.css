@@ -1,43 +1,35 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 20px;
+/* Styles for the accordion */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
+.accordion-btn {
+    background-color: #f4f4f4;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
+.accordion-btn:hover {
+    background-color: #ddd;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
 }
 
-section {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
+.panel p {
+    margin-top: 0;
 }
 
-.introduccion h2 {
-  margin-top: 0;
+.panel.show {
+    display: block;
 }
-
-.desplegable {
-  background-color: #ccc;
-  border: 1px solid #ddd;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.contenido-desplegable {
-  display: none;
-  margin-top: 10px
