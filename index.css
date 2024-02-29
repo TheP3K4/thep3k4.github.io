@@ -66,3 +66,27 @@ h3 {
 .panel.show {
     display: block;
 }
+
+/* Nuevos estilos para el acordeón */
+.accordion-btn {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #555;
+    cursor: pointer;
+}
+
+.accordion-btn:hover {
+    background-color: #ddd;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+}
+
+.panel p {
+    margin-top: 0;
+}
+
+.panel.show {
+    display: block;
+}
