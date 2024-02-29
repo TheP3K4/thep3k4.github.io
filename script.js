@@ -9,7 +9,7 @@ accordionButtons.forEach(button => {
     });
 });
 
-// Function to verify answer for Task 1
+// Function to verificarRespuesta1
 function verificarRespuesta1() {
     const respuestaInput = document.getElementById('respuesta1').value.trim().toLowerCase();
     const feedback = document.getElementById('respuesta1-feedback');
